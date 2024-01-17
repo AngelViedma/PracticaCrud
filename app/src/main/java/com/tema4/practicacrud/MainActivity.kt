@@ -85,13 +85,12 @@ class MainActivity : AppCompatActivity(),CoroutineScope {
                 subirArchivo(persona)
 
                 launch {
-                    val url_imagen_firebase =
-                        Utilidad.guardarImagen(storageRef, identificador!!, url_persona!!)
                     val tel = binding.etTelefono.text.toString()
                     val nombre = binding.etNombre.text.toString()
                     val descripcion = binding.etDescripcion.text.toString()
                     val calificacion=binding.ratingBar
-
+                    val url_imagen_firebase =
+                        Utilidad.guardarImagen(storageRef, nombre, url_persona!!)
                     Utilidad.escribirPersona(
                         ref, identificador!!,
                         nombre.trim(),
@@ -148,27 +147,11 @@ class MainActivity : AppCompatActivity(),CoroutineScope {
             val data = baos.toByteArray()
 
             val nom_foto = binding.etNombre.text.toString()
-            val fotoRef = storageRef.child("contactos").child("$nom_foto.jpg")
 
             ref.child("Usuario").child(identificador!!).setValue(persona)
                 .addOnSuccessListener {
                     baseDatosActualizada = true
                 }
-
-            val uploadTask = fotoRef.putBytes(data)
-            uploadTask.addOnFailureListener {
-
-            }.addOnSuccessListener { taskSnapshot ->
-                Toast.makeText(this, "Foto cargada con exito", Toast.LENGTH_SHORT).show()
-                fotoSubida = true
-                if (baseDatosActualizada && fotoSubida) {
-                    Toast.makeText(this, "Subida existosa", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Error de subida", Toast.LENGTH_SHORT).show()
-                }
-            }.addOnFailureListener {
-                throw Exception("No se ha podido guardar la imagen")
-            }
         } catch (e: Exception) {
             Toast.makeText(this, "Error al subir foto", Toast.LENGTH_SHORT).show()
         }

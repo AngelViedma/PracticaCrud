@@ -51,10 +51,10 @@ class Utilidad {
                 url_firebase
             ))
 
-        suspend fun guardarImagen(sto_ref: StorageReference, id:String, imagen: Uri):String{
+        suspend fun guardarImagen(sto_ref: StorageReference, nombre:String, imagen: Uri):String{
             lateinit var url_imagen_persona_firebase: Uri
 
-            url_imagen_persona_firebase=sto_ref.child("Usuario").child("contactos").child(id)
+            url_imagen_persona_firebase=sto_ref.child("contactos").child(nombre)
                 .putFile(imagen).await().storage.downloadUrl.await()
 
             return url_imagen_persona_firebase.toString()
