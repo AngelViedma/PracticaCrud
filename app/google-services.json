@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "921003171689",
+    "project_id": "proyecto-crud-e7f03",
+    "storage_bucket": "proyecto-crud-e7f03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921003171689:android:4316642cd2cada19ab27f8",
+        "android_client_info": {
+          "package_name": "com.tema4.practicacrud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq2AG-JyW_btswDq5Qdt3SgzKVaeRzSnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
