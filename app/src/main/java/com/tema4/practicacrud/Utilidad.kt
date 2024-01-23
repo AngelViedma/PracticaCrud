@@ -5,6 +5,8 @@ import android.content.Context
 import android.net.Uri
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.google.android.gms.fido.fido2.api.common.RequestOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -69,5 +71,24 @@ class Utilidad {
                 ).show()
             }
         }
+        fun animacion_carga(contexto: Context): CircularProgressDrawable{
+            val animacion = CircularProgressDrawable(contexto)
+            animacion.strokeWidth = 5f
+            animacion.centerRadius = 30f
+            animacion.start()
+            return animacion
+        }
+
+
+        val transicion = DrawableTransitionOptions.withCrossFade(500)
+
+        fun opcionesGlide(context: Context):RequestOptions{
+            val options = RequestOptions()
+                .placeholder(animacion_carga(context))
+                .fallback(R.drawable.escudo_generico)
+                .error(R.drawable.error_404)
+            return options
+        }
+
     }
 }
