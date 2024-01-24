@@ -6,92 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/img_cargar_archivo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/baseline_image_search_24"
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@drawable/imagen_contacto"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/transparente"/>
 
-    <EditText
-        android:id="@+id/et_nombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_cargar_archivo" />
-
-    <EditText
-        android:id="@+id/et_descripcion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Descripcion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nombre" />
-
-    <EditText
-        android:id="@+id/et_telefono"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Telefono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_descripcion" />
+        />
 
     <Button
-        android:id="@+id/bt_enviar_datos"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
+        android:id="@+id/crear"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Enviar Datos"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:text="Crear nueva Persona"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
 
     <Button
-        android:id="@+id/bt_volver"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
+        android:id="@+id/ver"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="       Volver       "
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:text="Ver Personas"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_enviar_datos" />
+        app:layout_constraintTop_toBottomOf="@id/crear" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        style="@style/Widget.AppCompat.RatingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:progressTint="#FFEB3B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_telefono" />
 </androidx.constraintlayout.widget.ConstraintLayout>

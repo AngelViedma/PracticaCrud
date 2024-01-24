@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_marginVertical="4dp"
     android:layout_height="wrap_content">
@@ -28,7 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
             android:text="Nombre"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/item_ciudad"
+            android:id="@+id/item_descripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -47,14 +47,14 @@
             app:layout_constraintTop_toBottomOf="@id/item_nombre" />
 
         <TextView
-            android:id="@+id/item_fundacion"
+            android:id="@+id/item_telefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="48dp"
             android:text="Telefono"
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/item_ciudad"
-            app:layout_constraintTop_toBottomOf="@id/item_nombre" />
+            app:layout_constraintStart_toEndOf="@id/item_descripcion"
+            app:layout_constraintTop_toBottomOf="@+id/item_fecha" />
 
         <ImageView
             android:id="@+id/item_editar"
@@ -75,6 +75,27 @@
             android:src="@drawable/baseline_delete_forever_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:text="Fecha"
+            app:layout_constraintStart_toEndOf="@+id/item_nombre"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/item_ratingbar"
+            style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_miniatura"
+            app:layout_constraintTop_toBottomOf="@+id/item_descripcion"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

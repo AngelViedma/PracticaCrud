@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.tema4.practicacrud"
-    compileSdk = 32
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.tema4.practicacrud"
         minSdk = 28
-        targetSdk = 32
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

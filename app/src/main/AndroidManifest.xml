@@ -15,6 +15,9 @@
         android:theme="@style/Theme.PracticaCrud"
         tools:targetApi="31">
         <activity
+            android:name=".EditarPersona"
+            android:exported="false" />
+        <activity
             android:name=".VerPersona"
             android:exported="false" />
         <activity

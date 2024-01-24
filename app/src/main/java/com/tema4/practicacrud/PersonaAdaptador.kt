@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -37,7 +38,8 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
             holder.nombre.text = item_actual.nombre
             holder.descripcion.text = item_actual.descripcion
             holder.telefono.text = item_actual.telefono.toString()
-            holder.clasificacion.text=item_actual.calificacion.toString()
+            holder.clasificacion.rating=item_actual.calificacion?.toFloat()?:0.0f
+            holder.fecha.text=item_actual.fecha
 
             val URL: String? = when (item_actual.imagen_persona) {
                 "" -> null
@@ -52,7 +54,7 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
 
             holder.editar.setOnClickListener {
                 val activity = Intent(contexto, EditarPersona::class.java)
-                activity.putExtra("club", item_actual)
+                activity.putExtra("persona", item_actual)
                 contexto.startActivity(activity)
             }
 
@@ -60,12 +62,10 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
                 val db_ref = FirebaseDatabase.getInstance().getReference()
                 val sto_ref = FirebaseStorage.getInstance().getReference()
                 lista_filtrada.remove(item_actual)
-                sto_ref.child("nba").child("clubs")
-                    .child("escudos").child(item_actual.id!!).delete()
-                db_ref.child("nba").child("club")
-                    .child(item_actual.id!!).removeValue()
+                sto_ref.child("Usuario").child(item_actual.id!!).delete()
+                db_ref.child("Usuario").child(item_actual.id!!).removeValue()
 
-                Toast.makeText(contexto, "Club borrado con exito", Toast.LENGTH_SHORT).show()
+                Toast.makeText(contexto, "Persona borrado con exito", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -76,9 +76,10 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
         class PersonaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val miniatura: ImageView = itemView.findViewById(R.id.item_miniatura)
             val nombre: TextView = itemView.findViewById(R.id.item_nombre)
-            val descripcion: TextView = itemView.findViewById(R.id.item_ciudad)
-            val telefono: TextView = itemView.findViewById(R.id.item_fundacion)
-            val clasificacion:TextView=itemView.findViewById(R.id.ratingBar)
+            val descripcion: TextView = itemView.findViewById(R.id.item_descripcion)
+            val telefono: TextView = itemView.findViewById(R.id.item_telefono)
+            val clasificacion:RatingBar=itemView.findViewById(R.id.ratingBar)
+            val fecha:TextView=itemView.findViewById(R.id.item_fecha)
             val editar: ImageView = itemView.findViewById(R.id.item_editar)
             val eliminar: ImageView = itemView.findViewById(R.id.item_borrar)
         }
