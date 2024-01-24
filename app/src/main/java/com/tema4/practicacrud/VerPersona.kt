@@ -42,8 +42,8 @@ class VerPersona : AppCompatActivity() {
                     lista.clear()
                     snapshot.children.forEach{hijo: DataSnapshot?
                         ->
-                        val pojo_club = hijo?.getValue(Persona::class.java)
-                        lista.add(pojo_club!!)
+                        val pojo_persona = hijo?.getValue(Persona::class.java)
+                        lista.add(pojo_persona!!)
                     }
                     recycler.adapter?.notifyDataSetChanged()
                 }

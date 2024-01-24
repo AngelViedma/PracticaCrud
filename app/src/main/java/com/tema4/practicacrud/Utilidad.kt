@@ -6,7 +6,8 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import com.google.android.gms.fido.fido2.api.common.RequestOptions
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -85,8 +86,10 @@ class Utilidad {
         fun opcionesGlide(context: Context):RequestOptions{
             val options = RequestOptions()
                 .placeholder(animacion_carga(context))
-                .fallback(R.drawable.escudo_generico)
+                .fallback(R.drawable.imagen_contacto)
                 .error(R.drawable.error_404)
+            return options
+
             return options
         }
 

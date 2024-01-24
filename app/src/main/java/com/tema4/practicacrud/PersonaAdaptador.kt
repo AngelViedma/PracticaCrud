@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.bumptech.glide.Glide
 
 class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
     RecyclerView.Adapter<PersonaAdaptador.PersonaViewHolder>(), Filterable
@@ -23,22 +25,23 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
         override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-        ): PersonaAdaptador.PersonaViewHolder {
+        ): PersonaViewHolder {
             val vista_item =
                 LayoutInflater.from(parent.context).inflate(R.layout.item_persona, parent, false)
             contexto = parent.context
             return PersonaViewHolder(vista_item)
         }
 
-        override fun onBindViewHolder(holder: PersonaAdaptador.PersonaViewHolder, position: Int) {
+        override fun onBindViewHolder(holder: PersonaViewHolder, position: Int) {
             val item_actual = lista_filtrada[position]
             holder.nombre.text = item_actual.nombre
-            holder.ciudad.text = item_actual.ciudad
-            holder.fundacion.text = item_actual.fundacion.toString()
+            holder.descripcion.text = item_actual.descripcion
+            holder.telefono.text = item_actual.telefono.toString()
+            holder.clasificacion.text=item_actual.calificacion.toString()
 
-            val URL: String? = when (item_actual.escudo) {
+            val URL: String? = when (item_actual.imagen_persona) {
                 "" -> null
-                else -> item_actual.escudo
+                else -> item_actual.imagen_persona
             }
 
             Glide.with(contexto)
@@ -48,7 +51,7 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
                 .into(holder.miniatura)
 
             holder.editar.setOnClickListener {
-                val activity = Intent(contexto, EditarClub::class.java)
+                val activity = Intent(contexto, EditarPersona::class.java)
                 activity.putExtra("club", item_actual)
                 contexto.startActivity(activity)
             }
@@ -73,8 +76,9 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
         class PersonaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val miniatura: ImageView = itemView.findViewById(R.id.item_miniatura)
             val nombre: TextView = itemView.findViewById(R.id.item_nombre)
-            val ciudad: TextView = itemView.findViewById(R.id.item_ciudad)
-            val fundacion: TextView = itemView.findViewById(R.id.item_fundacion)
+            val descripcion: TextView = itemView.findViewById(R.id.item_ciudad)
+            val telefono: TextView = itemView.findViewById(R.id.item_fundacion)
+            val clasificacion:TextView=itemView.findViewById(R.id.ratingBar)
             val editar: ImageView = itemView.findViewById(R.id.item_editar)
             val eliminar: ImageView = itemView.findViewById(R.id.item_borrar)
         }
