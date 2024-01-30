@@ -35,8 +35,7 @@ class VerPersona : AppCompatActivity() {
         lista = mutableListOf()
         db_ref = FirebaseDatabase.getInstance().getReference()
 
-        db_ref.child("nba")
-            .child("club")
+        db_ref.child("Usuario")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     lista.clear()
@@ -99,5 +98,4 @@ class VerPersona : AppCompatActivity() {
     }
 
 
-    }
 }

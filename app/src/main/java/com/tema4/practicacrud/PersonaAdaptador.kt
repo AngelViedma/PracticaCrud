@@ -26,14 +26,14 @@ class PersonaAdaptador(private val lista_persona:MutableList<Persona>):
         override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-        ): PersonaViewHolder {
+        ): PersonaAdaptador.PersonaViewHolder {
             val vista_item =
                 LayoutInflater.from(parent.context).inflate(R.layout.item_persona, parent, false)
             contexto = parent.context
             return PersonaViewHolder(vista_item)
         }
 
-        override fun onBindViewHolder(holder: PersonaViewHolder, position: Int) {
+        override fun onBindViewHolder(holder: PersonaAdaptador.PersonaViewHolder, position: Int) {
             val item_actual = lista_filtrada[position]
             holder.nombre.text = item_actual.nombre
             holder.descripcion.text = item_actual.descripcion
