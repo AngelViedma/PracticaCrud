@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_descripcion" />
 
     <Button
-        android:id="@+id/bt_enviar_datos"
+        android:id="@+id/bt_modificar_datos"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
         android:text="          Volver          "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_enviar_datos" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_modificar_datos" />
 
     <RatingBar
         android:id="@+id/ratingBar"

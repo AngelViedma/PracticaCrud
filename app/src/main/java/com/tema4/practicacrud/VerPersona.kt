@@ -60,8 +60,8 @@ class VerPersona : AppCompatActivity() {
         recycler.setHasFixedSize(true)
 
         volver.setOnClickListener {
-            val activity = Intent(applicationContext, MainActivity::class.java)
-            startActivity(activity)
+            val actividad = Intent(applicationContext, MainActivity::class.java)
+            startActivity(actividad)
         }
     }
 
@@ -77,17 +77,17 @@ class VerPersona : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                adaptador.filter.filter((newText))
+                adaptador.filter.filter(newText)
                 return true
             }
         })
 
         item.setOnActionExpandListener(object : MenuItem.OnActionExpandListener{
-            override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
+            override fun onMenuItemActionExpand(p0: MenuItem): Boolean {
                 return  true
             }
 
-            override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
+            override fun onMenuItemActionCollapse(p0: MenuItem): Boolean {
                 adaptador.filter.filter("")
                 return true
             }

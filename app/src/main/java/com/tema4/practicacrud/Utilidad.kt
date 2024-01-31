@@ -43,7 +43,7 @@ class Utilidad {
             return lista
         }
 
-        fun escribirPersona(db_ref: DatabaseReference,id:String,nombre:String, descripcion:String,telefono:Int, calificacion:Float, fecha:String, url_firebase:String)=
+        fun escribirPersona(db_ref: DatabaseReference,id:String,nombre:String, descripcion:String,telefono:Int, calificacion:Float, fecha:String, url_firebase:String,estado:Int,notificador:String)=
             db_ref.child("Usuario").child(id).setValue(Persona(
                 id,
                 nombre,
@@ -51,7 +51,9 @@ class Utilidad {
                 telefono,
                 calificacion,
                 fecha,
-                url_firebase
+                url_firebase,
+                estado,
+                notificador
             ))
 
         suspend fun guardarImagen(sto_ref: StorageReference, nombre:String, imagen: Uri):String{

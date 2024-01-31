@@ -11,5 +11,12 @@ data class Persona(
     var telefono:Int?=null,
     var calificacion:Float?=null,
     var fecha:String?=null,
-    var imagen_persona:String?=null
-):Parcelable
+    var url_persona:String?=null,
+    var estado_noti:Int?=0,
+    var user_notificador:String?=null,
+    var nombreAnterior:String?=null
+):Parcelable {
+    override fun toString(): String {
+        return nombre!!
+    }
+}
